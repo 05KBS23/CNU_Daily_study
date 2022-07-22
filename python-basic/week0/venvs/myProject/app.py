@@ -30,12 +30,34 @@ def create_menu():
     # get.json은 파이썬의 딕셔너리 타입을 변환시켜주는 함수이다. 변환과정이 필요함.
     request_data =  request.get_json()
     new_menu = {
-        "id" : 4,
+        "id" : 4, #id 값이 파이참에서 고정되어 있다면 포스트맨에서 해당 id값으로만 생성된 것만 GET으로 조회가 가능하다
         "name" : request_data['name'],
         "price" : request_data['price'],
     }
     menus.append(new_menu)
     return jsonify(new_menu)
+
+#알바생이 카페 메뉴를 추가하고 싶으면 사장님은 POST를 통해 새로운 메뉴를 추가하는 코드를 만들어서 알바생이 원할 때마다 추가시킬 수 있다.
+#파이참에서 new_menu라는 변수를 선언하고 append함수를 이용해서 리스트에 추가하는 과정을 거친다.
+#이 때 "
+#따라서
+
+@app.route('/menus/<int:id>', methods = ['PUT'])
+def put_menu(id):
+    request_data = request.get_json()
+    new_menu = {
+        "id": request.get_json()["id"],
+        "name": request.get_json()["name"],
+        "price": request.get_json()["price"]
+    }
+    menus[3] = new_menu
+    return jsonify(new_menu)
+#request는 postman에서 요청한 값을 의미한다...
+#앞서 알바생이 카페 메뉴에 새롭게 추가한 부분에 대하여 수정이 요구될 때, Put으로 id,name,price의 밸류 값의 변경이 가능하다.
+#포스트맨에서 PUT으로 요청할 수 있고, 변경된 결과를 GET을 통해 조회가 가능하다.
+#한편 어느날 알바생이 주제넘게 KEY값(id,name,price)를 변경하고 싶다고 하자,
+#그러기 위해서는 #9줄의 리스트를 수정해야 하는데, 사실 이는 '사장'의 권한이므로 파이참에서 수정을 해야한다.
+#근데 보통 그런 일은 없을것 같다.
 
 if __name__ == '__main__':
     app.run()
