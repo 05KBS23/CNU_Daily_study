@@ -101,5 +101,3 @@ def put_delete(KBS):
 
 if __name__ == '__main__':
     app.run()
-
-
