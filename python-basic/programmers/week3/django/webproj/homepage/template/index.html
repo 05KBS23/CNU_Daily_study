@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
-    <title>Python django example</title>
-</head>
-<body>
-<h1>Title</h1>
-<p>lalalalala</p>
-<p>{{my_num}}</p>
-</body>
+        <title>Python django example</title>
+    </head>
+
+    <body>
+        <h1>Title</h1>
+        <p>lalalalala</p>
+        {% for element in my_list %}
+            <p>{{ element }}</p>
+        {% endfor %}
+
+    </body>
 </html>

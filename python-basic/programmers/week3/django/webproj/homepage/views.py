@@ -2,8 +2,8 @@ from django.shortcuts import HttpResponse, render
 
 # Create your views here.
 def index(request): #어느경로로 와야 인덱스 함수를 사용하는가? 리퀘스트가 인자로 주어진다.
-    number = 10
-    return render(request, 'index.html',{"my_num" : number})
+    list = [1,2,3,4,5]
+    return render(request, 'index.html',{"my_list" : list})
 #이 뷰의 역할? 어떤 요청이 왔을 떄 "Hello world"라는 리스폰스를 주는 것
 
 #템플릿? : 모델과 뷰와는 다르게 파이썬 파일을 만들지 않고 새로운 html파일을 만드는 것
