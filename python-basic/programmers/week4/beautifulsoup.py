@@ -64,6 +64,8 @@ print(h1.text)
 
 # 2-3 원하는 요소 가져오기
 
+"""
+
 import requests
 
 res = requests.get("https://books.toscrape.com/catalogue/category/books/travel_2/index.html")
@@ -91,3 +93,45 @@ for book in h3_result:
 
 ## book_list에서 우리가 원하는 제목(title)만 추출해보자
 
+"""
+
+# 2-4 HTML의 locator로 원하는 요소찾기!
+
+"""
+import requests
+
+from bs4 import BeautifulSoup
+
+res = requests.get("http://example.python-scraping.com")
+
+soup = BeautifulSoup(res.text, "html.parser")
+
+
+#1 id가 results인 div 태그를 찾아보자.
+# print(soup.find("div", id="results"))
+
+#2 -class가 “page-header”인 div 태그를 찾아보자.
+# print(soup.find("div", "page-header"))
+
+
+#3 -위 결과에서 text 값을 깔끔하게 가져와보자.
+
+find_result = soup.find("div", "page-header")
+
+#4 print(find_result.h1.text) # h1에서 text만 포함하는 요소만 추출
+
+print(find_result.h1.text.strip()) # 공백을 제거하는 strip()
+
+"""
+
+# 2-4 원하는 요소 가져오기 2 - Hashcode 질문 가져오기
+
+#1 User_agent를 추가해본다. 반드시 딕셔너리 형태로 추가해야한다,.!!
+
+user_agent = {"user-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+
+import requests
+
+from bs4 import BeautifulSoup
+
+res = requests.get("https://hashcode.co.kr/", user_agent)
