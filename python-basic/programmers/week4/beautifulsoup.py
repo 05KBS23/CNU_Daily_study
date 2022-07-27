@@ -164,6 +164,6 @@ for i in range(1,6): #1페이지부터 5페이지까지만
     questions = soup.find_all("li", "question-list-item")
     for question in questions:
         print(question.find("div", "question").find("div", "top").h4.text)
-    time.sleep(0.5) #0.5초 간격을 줘서 반복
+    time.sleep(0.5) #0.5초 간격을 줘서 반복을 해요.
 
 
