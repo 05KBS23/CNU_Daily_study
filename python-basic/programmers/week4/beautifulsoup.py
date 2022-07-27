@@ -124,6 +124,7 @@ print(find_result.h1.text.strip()) # 공백을 제거하는 strip()
 
 """
 
+"""
 # 2-4 원하는 요소 가져오기 2 - Hashcode 질문 가져오기
 
 #1 User_agent를 추가해본다. 반드시 딕셔너리 형태로 추가해야한다,.!!
@@ -131,8 +132,38 @@ print(find_result.h1.text.strip()) # 공백을 제거하는 strip()
 user_agent = {"user-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
 
 import requests
-
 from bs4 import BeautifulSoup
 
-res = requests.get("https://hashcode.co.kr/", user_agent)
+# res = requests.get("https://hashcode.co.kr/", user_agent)
+
+#응답을 바탕으로 이제 파싱을 해야하므로 BeautifulSoup 객체 생성
+# soup = BeautifulSoup(res.text, "html.parser")
+
+#다음과 같이 연쇄적으로 접근을 할 수 있다.
+# print(soup.find("li", "question-list-item").find("div", "question").find("div", "top").h4.text)
+
+# questions = soup.find_all("li", "question-list-item")
+#
+# for question in questions:
+#     print(question.find("div", "question").find("div", "top").h4.text)
+"""
+
+
+# 페이지 네이션
+import requests
+from bs4 import BeautifulSoup
+import time
+
+user_agent = {"user-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36"}
+
+for i in range(1,6): #1페이지부터 5페이지까지만
+    res = requests.get("https://hashcode.co.kr/?page={}".format(i), user_agent)
+    # 중괄호{}가 변하기 때문에 format(i)을 써서 동적으로 구현. format은 {}를 i로 치환해준다.
+    soup = BeautifulSoup(res.text, "html.parser")
+
+    questions = soup.find_all("li", "question-list-item")
+    for question in questions:
+        print(question.find("div", "question").find("div", "top").h4.text)
+    time.sleep(0.5) #0.5초 간격을 줘서 반복
+
 
