@@ -21,7 +21,37 @@ print(k)
     L = [ k for k in range (5) ] —> ?
 
 4. 파이썬의 자료형 중 Dictionary에 { key: value} 추가하기, 대입하기
+
 """
+
+import random
+
+style = ["양식", "중식", "일식", "한식"]
+
+westurn = ["치킨", "피자", "파스타", "귀가"]
+chinese = ["마라탕","짬뽕","짜장면", "탕수육"]
+japanese = ["초밥","리멘", "오꼬노미야끼","텐동"]
+korean = ["제육", "찜닭", "삼겹살", "김밥"]
+
+a = random.choice(style)
+
+w = random.choice(chinese)
+j = random.choice(japanese)
+k = random.choice(korean)
+c = random.choice(chinese)
+
+if a == "양식":
+    print(w)
+elif a == "중식":
+    print(c)
+elif a == "일식":
+    print(j)
+else :
+    print(k)
+
+
+
+
 
 
 
