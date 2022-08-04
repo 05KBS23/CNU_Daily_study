@@ -9,7 +9,7 @@ from sklearn.naive_bayes import MultinomialNB
 from utils import clean_text
 
 logger = logging.getLogger(__name__)
-
+t
 
 def download_data(mode):
     base_url = f'https://raw.githubusercontent.com/e9t/nsmc/master/ratings_{mode}.txt'
