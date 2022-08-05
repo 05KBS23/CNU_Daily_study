@@ -1,5 +1,5 @@
 #
-# ## 텐서 조작하기(Tensor Manipulation)
+# ## 텐서 조작하기(Tensor Manipulation)!!
 #
 #
 # # 뷰(View) - 원소의 수를 유지하면서 텐서의 크기 변경. 매우 중요함!!
