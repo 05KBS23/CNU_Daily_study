@@ -6,7 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/week3/venv" />
       <excludeFolder url="file://$MODULE_DIR$/week0/venvkbs" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (python-basic)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
